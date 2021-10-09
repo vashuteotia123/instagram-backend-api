@@ -11,5 +11,5 @@ type Post struct {
 	Caption string `json:"caption" bson:"caption"`
 	ImageURL string `json:"image_url" bson:"image_url"`
 	Time time.Time `json:"time" bson:"time"`
-	Userid string `json:"userid" bson:"userid"` //can be auto filled with current user session
+	Userid string `json:"userid" bson:"userid"` //can be auto filled with current user session later on 
 }
