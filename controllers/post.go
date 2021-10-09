@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
@@ -60,13 +61,16 @@ func (post_controller PostController) CreatePost(w http.ResponseWriter, r *http.
 
 func (post_controller PostController) GetUserPosts(w http.ResponseWriter,r *http.Request, p httprouter.Params) {
 	id := p.ByName("id")
-	posts := make([]models.Post, 0, 10)
-	err := post_controller.session.DB("instagram-backend").C("posts").Find(bson.M{"userid":id}).All(&posts)
+	posts := make([]models.Post, 0, 2)
+	page, _ := strconv.Atoi(r.URL.Query().Get("page"))
+	if page == 0 {
+		page = 1
+	}
+	err := post_controller.session.DB("instagram-backend").C("posts").Find(bson.M{"userid":id}).Skip((page-1)*2).Limit(2).All(&posts)
 	if err != nil {
 		w.WriteHeader(404)
 		return
 	}
-	fmt.Println("Hello World")
 	post_marshal, err := json.Marshal(posts)
 	 if err != nil {
 		fmt.Println(err)
