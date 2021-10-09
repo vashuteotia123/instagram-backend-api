@@ -27,19 +27,19 @@
 - Should be a GET request
 - URL should be ‘/posts/users/<Id here>'
 
-#### :heavy_check_mark: Passwords should be securely stored such they can't be reverse engineered
+##### :heavy_check_mark: Passwords should be securely stored such they can't be reverse engineered
 
-#### :heavy_check_mark: Make the server thread safe
+##### :heavy_check_mark: Make the server thread safe
 
 ###### :x: Add pagination to the list endpoint
 
 ###### :x: Add unit tests
 
-#### :heavy_check_mark: The API should be developed using Go.
+##### :heavy_check_mark: The API should be developed using Go.
 
-#### :heavy_check_mark: MongoDB should be used for storage.
+##### :heavy_check_mark: MongoDB should be used for storage.
 
-#### :heavy_check_mark: Only packages/libraries listed here and here can be used.
+##### :heavy_check_mark: Only packages/libraries listed here and here can be used.
 
 
 #### :heavy_check_mark: Users should have the following attributes
