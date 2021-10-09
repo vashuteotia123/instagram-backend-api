@@ -84,6 +84,6 @@
 - ### To get all posts corresponding to a user with id say 61612bb9e11c71a9c06d5ea9:
 ##### GET: :link: http://localhost:9000/posts/users/61612bb9e11c71a9c06d5ea9
  
- -### To check pagination 
+- ### To check pagination 
  ##### GET: :link: http://localhost:9000/posts/users/61612bb9e11c71a9c06d5ea9?page=2
 
