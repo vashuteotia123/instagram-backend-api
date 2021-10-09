@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/vashuteotia123/instagram-backend-api/models"
@@ -45,6 +46,7 @@ func (post_controller PostController) CreatePost(w http.ResponseWriter, r *http.
 	post := models.Post{}
 	json.NewDecoder(r.Body).Decode(&post)
 	post.Id = bson.NewObjectId()
+	post.Time = time.Now()
 	post_controller.session.DB("instagram-backend").C("posts").Insert(post)
 	post_marshal, err := json.Marshal(post)
 	if err != nil {
@@ -58,7 +60,6 @@ func (post_controller PostController) CreatePost(w http.ResponseWriter, r *http.
 
 func (post_controller PostController) GetUserPosts(w http.ResponseWriter,r *http.Request, p httprouter.Params) {
 	id := p.ByName("id")
-	fmt.Println(id)
 	posts := make([]models.Post, 0, 10)
 	err := post_controller.session.DB("instagram-backend").C("posts").Find(bson.M{"userid":id}).All(&posts)
 	if err != nil {

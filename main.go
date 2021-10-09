@@ -8,6 +8,11 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
+/*
+Submitted in last 5 minutes as pushing my code to public repo sooner than this might result
+in code duplication.
+Made by: Vishal Teotia
+*/
 func main() {
 	r := httprouter.New()
 	uc := controllers.NewUserController(getSession())
