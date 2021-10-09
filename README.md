@@ -31,7 +31,7 @@
 
 ##### :heavy_check_mark: Make the server thread safe
 
-###### :x: Add pagination to the list endpoint
+###### :heavy_check_mark: Add pagination to the list endpoint with 2 posts per page 
 
 ###### :x: Add unit tests
 
@@ -39,7 +39,7 @@
 
 ##### :heavy_check_mark: MongoDB should be used for storage.
 
-##### :heavy_check_mark: Only packages/libraries listed here and here can be used.
+##### :heavy_check_mark: Only packages/libraries listed [here](https://golang.org/pkg/) and [here](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.4.0) can be used.
 
 
 #### :heavy_check_mark: Users should have the following attributes
@@ -55,7 +55,7 @@
 - Posted Timestamp
 
 ## Dummy Calls:
-### To Create a user: 
+- ### To Create a user: 
 ##### POST: http:localhost:9000/users
 ##### Body 
 ```
@@ -65,10 +65,10 @@
     "Password": "xyzabc"
 }
 ```
-### To Get a user with given id say 61612bb9e11c71a9c06d5ea9: 
+- ### To Get a user with given id say 61612bb9e11c71a9c06d5ea9: 
 ##### GET: :link: http://localhost:9000/users/61612bb9e11c71a9c06d5ea9
 
-### To Create a post: 
+- ### To Create a post: 
 ##### POST: http:localhost:9000/post
 ##### Body 
 ```
@@ -78,8 +78,12 @@
     "UserId": "61612bb9e11c71a9c06d5ea9"
 }
 ```
-### To get a post with given id say 61607b00e11c71fb8b4f433d:
+- ### To get a post with given id say 61607b00e11c71fb8b4f433d:
 ##### GET: :link: http://localhost:9000/post/61607b00e11c71fb8b4f433d
 
-### To get all posts corresponding to a user with id say 61612bb9e11c71a9c06d5ea9:
+- ### To get all posts corresponding to a user with id say 61612bb9e11c71a9c06d5ea9:
 ##### GET: :link: http://localhost:9000/posts/users/61612bb9e11c71a9c06d5ea9
+ 
+ -### To check pagination 
+ ##### GET: :link: http://localhost:9000/posts/users/61612bb9e11c71a9c06d5ea9?page=2
+
